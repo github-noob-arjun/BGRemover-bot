@@ -10,7 +10,7 @@ load_dotenv()
 REMOVEBG_API = os.environ.get("REMOVEBG_API", "")
 UNSCREEN_API = os.environ.get("UNSCREEN_API", "")
 
-Bot = Client(
+BGRBot = Client(
     "Remove Background Bot",
     bot_token=os.environ.get("BOT_TOKEN"),
     api_id=int(os.environ.get("API_ID")),
@@ -81,41 +81,6 @@ async def start(bot, update, cb=False):
             reply_markup=START_BUTTONS,
             quote=True
         )
-
-
-@Bot.on_message(filters.private & filters.command(["help"]))
-async def help(bot, update, cb=False):
-    if cb:
-        await update.message.edit_text(
-            text=HELP_TEXT,
-            reply_markup=HELP_BUTTONS,
-            disable_web_page_preview=True
-        )
-    else:
-        await update.reply_text(
-            text=HELP_TEXT,
-            reply_markup=HELP_BUTTONS,
-            disable_web_page_preview=True,
-            quote=True
-        )
-
-
-@Bot.on_message(filters.private & filters.command(["about"]))
-async def about(bot, update, cb=False):
-    if cb:
-        await update.message.edit_text(
-            text=ABOUT_TEXT,
-            reply_markup=ABOUT_BUTTONS,
-            disable_web_page_preview=True
-        )
-    else:
-        await update.reply_text(
-            text=ABOUT_TEXT,
-            reply_markup=ABOUT_BUTTONS,
-            disable_web_page_preview=True,
-            quote=True
-        )
-
 
 @Bot.on_message(filters.private & (filters.photo | filters.video | filters.document))
 async def remove_background(bot, update):
@@ -216,6 +181,3 @@ def removebg_video(file):
         files={"video_file": open(file, "rb")},
         headers={"X-Api-Key": UNSCREEN_API}
     )
-
-
-Bot.run()
