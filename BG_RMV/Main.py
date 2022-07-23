@@ -1,20 +1,18 @@
 import os
 import requests
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-
-load_dotenv()
-
-REMOVEBG_API = os.environ.get("REMOVEBG_API", "")
-UNSCREEN_API = os.environ.get("UNSCREEN_API", "")
+# load_dotenv()
+UNSCREEN_API = "EC8JuKQbKRg3W5JdQqHLmKiS"
+REMOVEBG_API = "kZTKztjYGsGo155mywFTH3Fe"
 
 BGRBot = Client(
     "Remove Background Bot",
-    bot_token=os.environ.get("BOT_TOKEN"),
-    api_id=int(os.environ.get("API_ID")),
-    api_hash=os.environ.get("API_HASH")
+    bot_token="5377088293:AAGCUktSt5vLfTx2brzBsurvlU-yYT2PHXQ",
+    api_id=18988485,
+    api_hash="b8b78728c7f08859bfa98f5cbb250dc8"
 )
 
 START_TEXT = """**🙌 Hello {},
@@ -23,7 +21,6 @@ I am a media background remover bot.
 Send me a photo or video I will send the media without background.
 
 @PyroBotz**"""
-
 
 
 START_BUTTONS = InlineKeyboardMarkup(
@@ -52,20 +49,7 @@ BUTTONS = InlineKeyboardMarkup(
     ]
 )
 
-
-@Bot.on_callback_query()
-async def cb_data(bot, update):
-    if update.data == "home":
-        await start(bot, update, cb=True)
-    elif update.data == "help":
-        await help(bot, update, cb=True)
-    elif update.data == "about":
-        await about(bot, update, cb=True)
-    else:
-        await update.message.delete()
-
-
-@Bot.on_message(filters.private & filters.command(["start"]))
+@BGRBot.on_message(filters.private & filters.command(["start"]))
 async def start(bot, update, cb=False):
     text=START_TEXT.format(update.from_user.mention)
     if cb:
@@ -82,7 +66,7 @@ async def start(bot, update, cb=False):
             quote=True
         )
 
-@Bot.on_message(filters.private & (filters.photo | filters.video | filters.document))
+@BGRBot.on_message(filters.private & (filters.photo | filters.video | filters.document))
 async def remove_background(bot, update):
     if not (REMOVEBG_API or UNSCREEN_API):
         await update.reply_text(
