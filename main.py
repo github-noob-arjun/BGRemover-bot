@@ -17,58 +17,21 @@ Bot = Client(
     api_hash=os.environ.get("API_HASH")
 )
 
-START_TEXT = """Hello {},
-I am a media background remover bot. \
-Send me a photo I will send the photo without background.
+START_TEXT = """**🙌 Hello {},
 
-Made by @FayasNoushad"""
+I am a media background remover bot.
+Send me a photo or video I will send the media without background.
 
-HELP_TEXT = """--**More Help**--
+@PyroBotz**"""
 
-- Just send me a photo or video
-- I will download it
-- I will send the photo or video without background
 
-Made by @FayasNoushad"""
-
-ABOUT_TEXT = """**About Me**
-
-- **Bot :** `Backround Remover Bot`
-- **Developer :** [Fayas](https://github.com/FayasNoushad)
-- **Channel :** [Fayas Noushad](https://telegram.me/FayasNoushad)
-- **Source :** [Click here](https://github.com/FayasNoushad/Remove-BG-Bot)
-- **Language :** [Python3](https://python.org)
-- **Library :** [Pyrogram](https://pyrogram.org)"""
 
 START_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton('Join Channel', url='https://telegram.me/FayasNoushad')
-        ],
-        [
-            InlineKeyboardButton('Help', callback_data='help'),
-            InlineKeyboardButton('About', callback_data='about'),
-            InlineKeyboardButton('Close', callback_data='close')
-        ]
-    ]
-)
-
-HELP_BUTTONS = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton('Home', callback_data='home'),
-            InlineKeyboardButton('About', callback_data='about'),
-            InlineKeyboardButton('Close', callback_data='close')
-        ]
-    ]
-)
-
-ABOUT_BUTTONS = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton('Home', callback_data='home'),
-            InlineKeyboardButton('Help', callback_data='help'),
-            InlineKeyboardButton('Close', callback_data='close')
+            InlineKeyboardButton('✅ 𝗠𝗼𝗿𝗲 𝗕𝗼𝘁𝘇 ✅', url='https://t.me/PyroBotz')
+        ],[
+            InlineKeyboardButton('🐞 𝖱𝖾𝗉𝗈𝗋𝗍 𝖡𝗎𝗀 🐞', url='https://t.me/PYRO_BOTZ_CHAT')
         ]
     ]
 )
@@ -76,8 +39,7 @@ ABOUT_BUTTONS = InlineKeyboardMarkup(
 ERROR_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton('Help', callback_data='help'),
-            InlineKeyboardButton('Close', callback_data='close')
+            InlineKeyboardButton('🐞 𝖱𝖾𝗉𝗈𝗋𝗍 𝖡𝗎𝗀 🐞', url='https://t.me/PYRO_BOTZ_CHAT')
         ]
     ]
 )
@@ -85,7 +47,7 @@ ERROR_BUTTONS = InlineKeyboardMarkup(
 BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton('Join Channel', url='https://telegram.me/FayasNoushad')
+            InlineKeyboardButton('✅ 𝗝𝗢𝗜𝗡 𝗡𝗢𝗪 ✅', url='https://t.me/PyroBotz')
         ]
     ]
 )
